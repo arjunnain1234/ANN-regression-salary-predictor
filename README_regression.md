@@ -1,23 +1,42 @@
 # Customer Salary Predictor 💰
 
-An interactive web application built with **Streamlit** and a machine learning model (Artificial Neural Network for **regression**) that predicts a customer's **estimated salary** based on demographic and banking features.
+An interactive web application built with **Streamlit** and an Artificial Neural Network (ANN) **regression** model that predicts a customer's **estimated salary** from demographic and banking features.
 
 ---
 
 ## 🌟 Features
 
-* **Interactive User Interface:** Easily adjust customer parameters such as Geography, Age, Balance, Credit Score, Tenure, and Number of Products using intuitive sliders, number inputs, and dropdowns.
-* **Real-time Prediction:** Instantly calculates and displays the predicted estimated salary (for example, `$140529.64`).
-* **Regression Model:** Unlike a classification model that outputs a category (Yes/No), this model outputs a continuous numeric value.
-* **Built with Streamlit:** Fast, lightweight, and responsive web framework for data-driven applications.
+* **Interactive User Interface:** Adjust customer parameters such as Geography, Age, Balance, Credit Score, Tenure, and Number of Products using dropdowns, sliders, and number inputs.
+* **Real-time Prediction:** Instantly displays the predicted estimated salary (for example, `$140529.64`).
+* **Regression Model:** Outputs a continuous numeric value instead of a category.
+* **Pre-trained Model & Encoders:** The trained model, encoders, and scaler are saved as files and loaded by the app, so no retraining is needed to run it.
 
 ---
 
 ## 🛠️ Tech Stack
 
 * **Frontend & UI:** [Streamlit](https://streamlit.io/)
-* **Machine Learning:** Artificial Neural Network (ANN) regression using TensorFlow/Keras and Scikit-Learn
+* **Machine Learning:** ANN regression using TensorFlow/Keras
+* **Preprocessing:** Scikit-Learn (label encoders, one-hot encoder, standard scaler)
 * **Language:** Python
+
+---
+
+## 📁 Project Structure
+
+```text
+.
+├── Churn_Modelling.csv          # Dataset used to train the model
+├── salaryregression.ipynb       # Notebook: data preprocessing, model training, evaluation
+├── regression_salary_pred.py    # Streamlit app (main file)
+├── regression_model.h5          # Trained ANN regression model
+├── label_encoder_gender.pkl     # Label encoder for Gender
+├── label_encoder_yes_no.pkl     # Label encoder for Yes/No inputs
+├── onehot_encoder_geo.pkl       # One-hot encoder for Geography
+├── scaler.pkl                   # Scaler for numeric features
+├── requirements.txt             # Python dependencies
+└── README.md                    # Project documentation
+```
 
 ---
 
@@ -53,7 +72,7 @@ pip install -r requirements.txt
 ### 4. Run the Streamlit App
 
 ```bash
-streamlit run app.py
+streamlit run regression_salary_pred.py
 ```
 
 ---
@@ -81,9 +100,16 @@ The model uses the following customer attributes to predict the estimated salary
 
 ---
 
+## ⚙️ How It Works
+
+1. **Training (`salaryregression.ipynb`):** The notebook loads `Churn_Modelling.csv`, encodes categorical columns (Gender, Geography, Yes/No fields), scales numeric features, and trains an ANN regression model. The model and preprocessing objects are saved as `.h5` and `.pkl` files.
+2. **Prediction (`regression_salary_pred.py`):** The Streamlit app loads those saved files, applies the same encoding and scaling to the user's inputs, and passes them to the model to get the predicted salary.
+
+---
+
 ## 📸 Screenshot
 
-Add a screenshot of the app to your repository (for example, in a `images/` folder) and link it here:
+Add a screenshot of the app to an `images/` folder in the repository and link it here:
 
 ```markdown
 ![App Screenshot](images/app-screenshot.png)
@@ -99,7 +125,7 @@ Check out the live deployment of the app here: [Customer Salary Predictor Live A
 
 ## 🔍 Classification vs. Regression
 
-This project is a **regression** problem because the target (estimated salary) is a continuous number. Its companion project, the Customer Retention Predictor, is a **binary classification** problem that predicts whether a customer will churn.
+This project is a **regression** problem because the target (estimated salary) is a continuous number. A classification problem, such as predicting whether a customer will churn, outputs a category (Yes/No) instead.
 
 ---
 
