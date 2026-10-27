@@ -109,13 +109,8 @@ The model uses the following customer attributes to predict the estimated salary
 
 ## 📸 Screenshot
 
-Add a screenshot of the app to an `images/` folder in the repository and link it here:
+<img width="1116" height="1334" alt="image" src="https://github.com/user-attachments/assets/569d0309-eb70-40c2-a238-7f4fa0e51b6f" />
 
-```markdown
-![App Screenshot](images/app-screenshot.png)
-```
-
----
 
 ## ☁️ Live Demo
 
