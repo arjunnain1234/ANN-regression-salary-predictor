@@ -114,7 +114,7 @@ The model uses the following customer attributes to predict the estimated salary
 
 ## ☁️ Live Demo
 
-Check out the live deployment of the app here: [Customer Salary Predictor Live App](https://your-app-name.streamlit.app/](https://salary-predictor-regression-based.streamlit.app)
+Check out the live deployment of the app here: [Customer Salary Predictor Live App](https://salary-predictor-regression-based.streamlit.app)
 
 ---
 
